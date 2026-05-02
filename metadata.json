@@ -1,0 +1,6 @@
+{
+  "name": "Yoru Automation",
+  "description": "Professional radio automation and soundboard system for live broadcasts, podcasting, and digital content creation.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": []
+}

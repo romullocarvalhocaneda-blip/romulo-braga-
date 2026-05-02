@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-studio-bg: #121214;
+  --color-studio-card: #1c1c1e;
+  --color-studio-panel: #252529;
+  --color-studio-border: #323238;
+  --color-studio-accent: #f27d26;
+  --color-studio-success: #34d399;
+  --color-studio-error: #f87171;
+  --color-studio-text: #e1e1e6;
+  --color-studio-text-dim: #a1a1aa;
+}
+
+@layer base {
+  body {
+    @apply bg-studio-bg text-studio-text font-sans antialiased selection:bg-studio-accent/30 selection:text-studio-text overflow-hidden;
+  }
+}
+
+@layer components {
+  .studio-card {
+    @apply bg-studio-card border border-studio-border rounded-lg shadow-lg;
+  }
+  
+  .studio-button {
+    @apply px-4 py-2 bg-studio-panel border border-studio-border rounded-md transition-all active:scale-95 disabled:opacity-50 disabled:active:scale-100;
+  }
+  
+  .studio-button-accent {
+    @apply bg-studio-accent text-white border-studio-accent hover:brightness-110 active:brightness-90;
+  }
+
+  .studio-scroll {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-studio-border) transparent;
+  }
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.studio-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.studio-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.studio-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--color-studio-border);
+  border-radius: 20px;
+}
+
+
+/* Custom progress for visualizers */
+.progress-vertical {
+  writing-mode: bt-lr; /* bottom-to-top */
+  appearance: slider-vertical;
+}
+
